@@ -14,10 +14,12 @@ It works quite similar to the normal elo ranking.
 But the expected scores calculated by matching all the players against each other.
 
 $$
-\sum_{k=1}^n a_k b_k \leq
+\sum_{k=1}^n a_k b_k \neq
 \left( \sum_{k=1}^n a_k^2 \right)
 \left( \sum_{k=1}^n b_k^2 \right)
 $$
+
+<!-- E_A = {\sum_{1<i<N, i\neq A}{1\over 1+10^{(R_{i}-R_{A})/D}}\over {N(N-1)/2}} -->
 
 where we have player $A$, number of players $N$ and the ranking of player $A$ is $R_A$.
 
