@@ -14,7 +14,7 @@ It works quite similar to the normal elo ranking.
 But the expected scores calculated by matching all the players against each other.
 
 $$
-E_{A} = \sum_{1<i<N, i\neq A}
+E_{A} = \sum_{i=1, i\neq A}^{N}
 \left( \sum_{k=1}^n a_k^2 \right)
 \left( \sum_{k=1}^n b_k^2 \right)
 $$
