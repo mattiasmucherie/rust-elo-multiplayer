@@ -1,5 +1,5 @@
 [package]
-name = "rust-elo-multiplayer"
+name = "elo-multiplayer"
 version = "0.1.1"
 edition = "2021"
 description = "Calculate ELO with multiple players"
