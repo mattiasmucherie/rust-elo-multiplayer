@@ -1,6 +1,6 @@
 [package]
 name = "elo-multiplayer"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 description = "Calculate ELO with multiple players"
 repository = "https://github.com/mattiasmucherie/rust_tutorial"
