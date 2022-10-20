@@ -1,4 +1,9 @@
 # rust-elo-multiplayer
+
+[![](https://img.shields.io/crates/v/rust-elo-multiplayer)](https://crates.io/crates/rust-elo-multiplayer)
+
+[![](https://img.shields.io/crates/d/rust-elo-multiplayer)](https://crates.io/crates/rust-elo-multiplayer)
+
 Rust crate for calculating multiplayer rating based on elo ranking system
 
 ## Example usage
