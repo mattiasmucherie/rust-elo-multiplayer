@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "elo-multiplayer"
+name = "rust-elo-multiplayer"
 version = "0.1.1"
