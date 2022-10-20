@@ -1,10 +1,10 @@
 [package]
 name = "elo-multiplayer"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 description = "Calculate ELO with multiple players"
-repository = "https://github.com/mattiasmucherie/rust_tutorial"
-homepage = "https://github.com/mattiasmucherie/rust_tutorial"
+repository = "https://github.com/mattiasmucherie/rust-elo-multiplayer"
+homepage = "https://github.com/mattiasmucherie/rust-elo-multiplayer"
 authors = ["Mattias Mucherie"]
 license = "MIT"
 keywords = ["elo", "multiplayer"]
