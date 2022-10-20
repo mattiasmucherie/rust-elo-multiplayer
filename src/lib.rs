@@ -1,12 +1,14 @@
 pub struct EloRank {
     pub k: i32,
     pub players: Vec<f64>,
+    pub score_base: f64,
 }
 impl Default for EloRank {
     fn default() -> EloRank {
         EloRank {
             k: 32,
             players: vec![1000f64, 1000f64],
+            score_base: 1.0,
         }
     }
 }
@@ -33,8 +35,16 @@ impl EloRank {
         let amount_of_players = self.players.len() as f64;
         let mut scores: Vec<f64> = vec![];
         for (i, _) in self.players.iter().enumerate() {
-            let score = (amount_of_players - (i as f64 + 1f64))
-                / (amount_of_players * (amount_of_players - 1f64) / 2f64);
+            let score: f64;
+            if self.score_base == 1.0 {
+                score = (amount_of_players - (i as f64 + 1f64))
+                    / (amount_of_players * (amount_of_players - 1f64) / 2f64);
+            } else {
+                score = (self.score_base.powf(amount_of_players - (i + 1) as f64) - 1f64)
+                    / (self.players.iter().enumerate().fold(0.0, |s, (j, _)| {
+                        s + (self.score_base.powf(amount_of_players - (j + 1) as f64) - 1f64)
+                    }));
+            }
             scores.push(score);
         }
         scores
@@ -77,6 +87,16 @@ mod tests {
         assert_eq!(
             elo.calculate(),
             vec![1021.3333333333334, 1000.0, 978.6666666666666]
+        );
+
+        let elo = EloRank {
+            players: vec![1000.0, 1000.0, 1000.0],
+            score_base: 1.5,
+            ..Default::default()
+        };
+        assert_eq!(
+            elo.calculate(),
+            [1024.3809523809523, 996.952380952381, 978.6666666666666]
         );
 
         let elo = EloRank {
