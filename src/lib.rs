@@ -26,7 +26,7 @@ impl EloRank {
             let expected = sum / ((amount_of_players * (amount_of_players - 1f64)) / 2f64);
             expected_array.push(expected)
         }
-        return expected_array;
+        expected_array
     }
 
     fn calculate_scores(&self) -> Vec<f64> {
