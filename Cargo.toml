@@ -2,7 +2,8 @@
 name = "rust-elo-multiplayer"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
+description = "Calculate ELO with multiple players"
+authors = ["Mattias Mucherie"]
+license = "MIT"
+keywords = ["elo", "multiplayer"]
 [dependencies]

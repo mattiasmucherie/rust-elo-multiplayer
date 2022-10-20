@@ -57,13 +57,43 @@ impl EloRank {
 mod tests {
     use crate::EloRank;
     #[test]
-    fn calculate_ratings() {
-        let players: Vec<f64> = vec![1000.0, 1000.0, 1000.0, 1000.0];
+    fn test_elo() {
         let elo = EloRank {
-            players,
+            players: vec![897.0, 978.0],
             ..Default::default()
         };
-        let new_elo = elo.calculate();
-        assert_eq!(new_elo, vec![1024.0, 1008.0, 992.0, 976.0]);
+        assert_eq!(elo.calculate(), vec![916.6640435522738, 958.3359564477262]);
+
+        let elo = EloRank {
+            players: vec![978.0, 897.0],
+            ..Default::default()
+        };
+        assert_eq!(elo.calculate(), vec![990.3359564477262, 884.6640435522738]);
+
+        let elo = EloRank {
+            players: vec![1000.0, 1000.0, 1000.0],
+            ..Default::default()
+        };
+        assert_eq!(
+            elo.calculate(),
+            vec![1021.3333333333334, 1000.0, 978.6666666666666]
+        );
+
+        let elo = EloRank {
+            players: vec![897.0, 978.0, 982.0, 995.0, 1017.0, 1034.0, 1096.0],
+            ..Default::default()
+        };
+        assert_eq!(
+            elo.calculate(),
+            vec![
+                933.4271852776218,
+                998.2520240277877,
+                992.7510517787325,
+                995.4420183323965,
+                1006.3245067439552,
+                1012.6627230848082,
+                1060.140490754698
+            ]
+        );
     }
 }
