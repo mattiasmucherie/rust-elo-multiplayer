@@ -50,7 +50,7 @@ Alternatively, you can add the following to your `Cargo.toml` file manually:
 
 ```toml
 [dependencies]
-elo-multiplayer = "0.1.5"
+elo-multiplayer = "0.2.2"
 ```
 
 ## Example usage
