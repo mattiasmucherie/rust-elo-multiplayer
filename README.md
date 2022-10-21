@@ -60,7 +60,7 @@ use elo_multiplayer::EloRank;
 
 fn main() {
     let players: Vec<f64> = vec![1000.0, 1000.0, 1000., 1000.0];
-    let elo = EloRank { k: 32, players };
+    let elo = EloRank { players, ..Default::default() };
     let new_rankings: Vec<f64> = elo.calculate();
 }
 
