@@ -17,18 +17,22 @@ $$
 E_A = {\sum_{i=1, i\neq A}^{N}{1\over 1+10^{(R_{i}-R_{A})/D}}\over {N(N-1)/2}}
 $$
 
-<!-- E_A = {\sum_{1<i<N, i\neq A}{1\over 1+10^{(R_{i}-R_{A})/D}}\over {N(N-1)/2}} -->
-
 where we have player $A$, number of players $N$ and the ranking of player $A$ is $R_A$.
 
 And the score is a bit more complex then the usual two player elo rating.
-Currently only a linear method of getting the scores for the players has been implemented:
+
+We can choose between two different scoring functions. A $linear$ and an $exponential$ one.
+The $linear$ scoring funtion makes it even for everybody, while the $exponential$ one favors the winner a bit more, making it more competetive and more important to score high.
 
 $$
-S_A^{linear} = {N-p_A\over N(N-1)/2}
+S_A^{linear}(p_A) = {N-p_A\over N(N-1)/2}
 $$
 
-where $p_A$ is the postion of the player (1st, 2nd, etc...)
+$$
+S_A^{exp}(p_A,\alpha) = {\alpha^{N-p_A}-1 \over \sum_{i=1}^N (\alpha^{N-i}-1)} ; \alpha \in (1,\infty)
+$$
+
+where $p_A$ is the postion of the player (1st, 2nd, etc...) and $\alpha$ is the base of the exponential function.
 
 We can then calculated the new ranking of a player with:
 
@@ -50,7 +54,7 @@ Alternatively, you can add the following to your `Cargo.toml` file manually:
 
 ```toml
 [dependencies]
-elo-multiplayer = "0.2.2"
+elo-multiplayer = "0.2.3"
 ```
 
 ## Example usage
@@ -59,7 +63,7 @@ elo-multiplayer = "0.2.2"
 use elo_multiplayer::EloRank;
 
 fn main() {
-    let players: Vec<f64> = vec![1000.0, 1000.0, 1000., 1000.0];
+    let players: Vec<f64> = vec![1000.0, 1000.0, 1000.0, 1000.0];
     let elo = EloRank { players, ..Default::default() };
     let new_rankings: Vec<f64> = elo.calculate();
 }

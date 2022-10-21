@@ -3,6 +3,7 @@ pub struct EloRank {
     pub players: Vec<f64>,
     pub score_base: f64,
 }
+
 impl Default for EloRank {
     fn default() -> EloRank {
         EloRank {
@@ -72,6 +73,14 @@ mod tests {
             players: vec![897.0, 978.0],
             ..Default::default()
         };
+        assert_eq!(elo.calculate(), vec![916.6640435522738, 958.3359564477262]);
+
+        let elo = EloRank {
+            players: vec![897.0, 978.0],
+            score_base: 2.0,
+            ..Default::default()
+        };
+        
         assert_eq!(elo.calculate(), vec![916.6640435522738, 958.3359564477262]);
 
         let elo = EloRank {
