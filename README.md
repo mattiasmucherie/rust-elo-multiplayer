@@ -8,7 +8,7 @@ Rust crate for calculating multiplayer rating based on elo ranking system
 
 ## Mentions
 
-This multiplayer elo algorithm is heavily inspired from [this](https://towardsdatascience.com/developing-a-generalized-elo-rating-system-for-multiplayer-games-b9b495e87802) article.
+This multiplayer elo algorithm is implementation in rust of the equations mentioned in [this](https://towardsdatascience.com/developing-a-generalized-elo-rating-system-for-multiplayer-games-b9b495e87802) article.
 
 It works quite similar to the normal elo ranking.
 But the expected scores calculated by matching all the players against each other.
