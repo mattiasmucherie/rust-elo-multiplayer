@@ -1,6 +1,6 @@
 [package]
 name = "elo-multiplayer"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 description = "Calculate ELO with multiple players"
 repository = "https://github.com/mattiasmucherie/rust-elo-multiplayer"
@@ -8,4 +8,13 @@ homepage = "https://github.com/mattiasmucherie/rust-elo-multiplayer"
 authors = ["Mattias Mucherie"]
 license = "MIT"
 keywords = ["elo", "multiplayer"]
+
 [dependencies]
+
+
+[dev-dependencies]
+criterion = "0.4.0"
+
+[[bench]]
+name = "elo"
+harness = false
